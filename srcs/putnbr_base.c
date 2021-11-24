@@ -1,35 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   putnbr_base.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 12:45:00 by yoelhaim          #+#    #+#             */
-/*   Updated: 2021/11/24 13:01:52 by yoelhaim         ###   ########.fr       */
+/*   Created: 2021/11/24 12:45:17 by yoelhaim          #+#    #+#             */
+/*   Updated: 2021/11/24 19:17:18 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
-int	ft_putnbr(int n)
+int		check_base(long int nb,char *base)
 {
-	long	nb;
+	int	i;
 
-	nb = (long)n;
+	i = 0;
+	if(nb == 0)
+		i++;
+	while (nb > 0)
+	{
+		i++;
+		nb/= ft_strlen(base);
+	}
+
+	return (i);
+}
+
+int	ft_putnbr_base(long nb, char *base)
+{
+	long long n;
+	int len;
+
+	len = 0;
+
 	if (nb < 0)
 	{
+		len++;
 		ft_putchar('-');
 		nb = nb * -1;
 	}
-	if (nb < 10)
+	n = nb;
+	if (nb <= (long)ft_strlen(base) -1)
 	{
-		ft_putchar(nb + 48);
+		ft_putchar(base[nb]);
 	}
 	else
 	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
+		ft_putnbr_base(nb / ft_strlen(base),base);
+		ft_putnbr_base(nb % ft_strlen(base),base);
 	}
-	return (0);
+	return (len + check_base(n, base));
 }

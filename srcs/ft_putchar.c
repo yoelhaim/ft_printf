@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 12:45:06 by yoelhaim          #+#    #+#             */
-/*   Updated: 2021/11/24 13:02:33 by yoelhaim         ###   ########.fr       */
+/*   Created: 2021/11/24 12:44:42 by yoelhaim          #+#    #+#             */
+/*   Updated: 2021/11/24 17:52:52 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
-int ft_putstr(char *str)
+int	ft_putchar(char c)
 {
-	int i;
-	i =0;
-	while(str[i])
-		write(1, &str[i++],1);
-	return(i);
+	write(1, &c, 1);
+	return(1);
 }

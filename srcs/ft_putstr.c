@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   writeptr.c                                         :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 12:45:23 by yoelhaim          #+#    #+#             */
-/*   Updated: 2021/11/24 12:47:38 by yoelhaim         ###   ########.fr       */
+/*   Created: 2021/11/24 12:45:06 by yoelhaim          #+#    #+#             */
+/*   Updated: 2021/11/24 18:56:38 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
-int    pointeur_print(void *p)
+int    ft_putstr(char *s)
 {
-    unsigned long    x;
+    char    *ptr;
 
-    x = (unsigned long)p;
-    ft_putstr("0x");
-    return (ft_putnbr_base_ptr(x, "0123456789abcdef") + 2);
+    if (!s)
+        return (ft_putstr("(null)"));
+    ptr = s;
+    while (*s)
+        ft_putchar(*(s++));
+    return (s - ptr);
 }
