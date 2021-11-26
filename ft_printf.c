@@ -6,13 +6,14 @@
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:04:09 by yoelhaim          #+#    #+#             */
-/*   Updated: 2021/11/24 19:31:50 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2021/11/26 13:35:16 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/ft_printf.h"
+#include <stdio.h>
 
-static void printPrintf(char format, const void *value, int *len)
+static void	print_printf(char format, const void *value, int *len)
 {
 	if (format == 's')
 		*len += ft_putstr((char *)value);
@@ -32,11 +33,11 @@ static void printPrintf(char format, const void *value, int *len)
 		*len += ft_putchar('%');
 }
 
-int ft_printf(const char *frmt, ...)
+int	ft_printf(const char *frmt, ...)
 {
-	va_list lst;
-	void *to_next;
-	int lenght;
+	va_list	lst;
+	void	*to_next;
+	int		lenght;
 
 	lenght = 0;
 	va_start(lst, frmt);
@@ -47,7 +48,7 @@ int ft_printf(const char *frmt, ...)
 			frmt++;
 			if (*frmt != '%')
 				to_next = va_arg(lst, void *);
-			printPrintf(*frmt, to_next, &lenght);
+			print_printf(*frmt, to_next, &lenght);
 		}
 		else
 			lenght += ft_putchar(*frmt);
@@ -56,12 +57,11 @@ int ft_printf(const char *frmt, ...)
 	va_end(lst);
 	return (lenght);
 }
-// #include <stdio.h>
 // int main()
 // {
-// 	// ft_printf("string => %.2s | dicimle => %d | char=> %c | pointeur => %p | hex => %x | HEX => %X \n","abcd", 1234, 'a',"abc", 0xC0, 0xC0);
-// 	// printf("string => %.2s | dicimle => %d | char=> %c | pointeur => %p | hex => %x | HEX => %X \n","abcd", 1234, 'a',"abc", 0xC0, 0xC0);
+// 	ft_printf("string => %s | dicimle => %d | char=> %c  | pointeur => %p | hex => %x | HEX => %X \n","abcd", 1234, 'a',"abc", 0xC0, 0xC0);
+// 	// printf("string => %s | dicimle => %d | char=> %c | pointeur => %p | hex => %x | HEX => %X \n","abcd", 1234, 'a',"abc", 0xC0, 0xC0);
 
-// int c = ft_printf("%s\n", "ahmed");
-// ft_printf("%d", c);
+// // int c = ft_printf("%s\n", "ahmed");
+// // ft_printf("%d", c);
 // }
