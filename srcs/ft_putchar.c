@@ -6,7 +6,7 @@
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 12:44:42 by yoelhaim          #+#    #+#             */
-/*   Updated: 2021/11/24 17:52:52 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2021/11/26 13:31:57 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 int	ft_putchar(char c)
 {
 	write(1, &c, 1);
-	return(1);
+	return (1);
 }
