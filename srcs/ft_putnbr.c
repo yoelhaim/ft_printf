@@ -6,14 +6,15 @@
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 12:45:00 by yoelhaim          #+#    #+#             */
-/*   Updated: 2021/11/24 19:23:48 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2021/11/26 13:43:06 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
-static int countSize(int n)
+
+static int	countsize(int n)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (n < 0)
@@ -27,9 +28,10 @@ static int countSize(int n)
 	}
 	return (i);
 }
-int ft_putnbr(int n)
+
+int	ft_putnbr(int n)
 {
-	long nb;
+	long	nb;
 
 	nb = (long)n;
 	if (nb < 0)
@@ -46,5 +48,5 @@ int ft_putnbr(int n)
 		ft_putnbr(nb / 10);
 		ft_putnbr(nb % 10);
 	}
-	return (countSize(n));
+	return (countsize(n));
 }
