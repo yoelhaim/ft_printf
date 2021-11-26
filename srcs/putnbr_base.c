@@ -6,39 +6,37 @@
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 12:45:17 by yoelhaim          #+#    #+#             */
-/*   Updated: 2021/11/24 19:17:18 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2021/11/26 13:49:51 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-int		check_base(long int nb,char *base)
+int	check_base(long int nb, char *base)
 {
 	int	i;
 
 	i = 0;
-	if(nb == 0)
+	if (nb == 0)
 		i++;
 	while (nb > 0)
 	{
 		i++;
-		nb/= ft_strlen(base);
+		nb /= ft_strlen(base);
 	}
-
 	return (i);
 }
 
 int	ft_putnbr_base(long nb, char *base)
 {
-	long long n;
-	int len;
+	long long	n;
+	int			len;
 
 	len = 0;
-
 	if (nb < 0)
 	{
 		len++;
-		ft_putchar('-');
+		ft_putchar ('-');
 		nb = nb * -1;
 	}
 	n = nb;
@@ -48,8 +46,8 @@ int	ft_putnbr_base(long nb, char *base)
 	}
 	else
 	{
-		ft_putnbr_base(nb / ft_strlen(base),base);
-		ft_putnbr_base(nb % ft_strlen(base),base);
+		ft_putnbr_base(nb / ft_strlen(base), base);
+		ft_putnbr_base(nb % ft_strlen(base), base);
 	}
 	return (len + check_base(n, base));
 }
