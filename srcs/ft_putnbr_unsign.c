@@ -6,15 +6,15 @@
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 12:45:00 by yoelhaim          #+#    #+#             */
-/*   Updated: 2021/11/24 20:14:07 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2021/11/26 13:42:05 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-static int countSize(unsigned	int n)
+static int	countsize(unsigned	int n)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!n)
@@ -26,9 +26,10 @@ static int countSize(unsigned	int n)
 	}
 	return (i);
 }
-int ft_putnbr_unsign(unsigned int n)
+
+int	ft_putnbr_unsign(unsigned int n)
 {
-	unsigned long nb;
+	unsigned long	nb;
 
 	nb = (long)n;
 	if (nb < 10)
@@ -40,5 +41,5 @@ int ft_putnbr_unsign(unsigned int n)
 		ft_putnbr(nb / 10);
 		ft_putnbr(nb % 10);
 	}
-	return (countSize(nb));
+	return (countsize(nb));
 }
