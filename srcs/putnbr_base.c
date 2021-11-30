@@ -6,13 +6,13 @@
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 12:45:17 by yoelhaim          #+#    #+#             */
-/*   Updated: 2021/11/26 13:49:51 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2021/11/28 21:35:23 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-int	check_base(long int nb, char *base)
+int	check_base(long int nb)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ int	check_base(long int nb, char *base)
 	while (nb > 0)
 	{
 		i++;
-		nb /= ft_strlen(base);
+		nb /= 16;
 	}
 	return (i);
 }
@@ -46,8 +46,8 @@ int	ft_putnbr_base(long nb, char *base)
 	}
 	else
 	{
-		ft_putnbr_base(nb / ft_strlen(base), base);
-		ft_putnbr_base(nb % ft_strlen(base), base);
+		ft_putnbr_base(nb / 16, base);
+		ft_putnbr_base(nb % 16, base);
 	}
-	return (len + check_base(n, base));
+	return (len + check_base(n));
 }
