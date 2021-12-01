@@ -6,7 +6,7 @@
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:04:09 by yoelhaim          #+#    #+#             */
-/*   Updated: 2021/11/30 13:37:11 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2021/12/01 22:01:33 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,11 @@ static void	print_printf(char format, const void *value, int *len)
 	else if (format == 'u')
 		*len += ft_putnbr_unsign((unsigned)value);
 	else if (format == 'x')
-		*len += ft_putnbr_base((unsigned int)value, "0123456789abcdef");
+		*len += ft_putnbr_base((unsigned int)value, HEX);
 	else if (format == 'X')
 		*len += ft_putnbr_base((unsigned int)value, "0123456789ABCDEF");
 	else if (format == '%')
 		*len += ft_putchar('%');
-	printf("\nhelllllllo =====>%d\n",*len);
 }
 
 int	ft_printf(const char *frmt, ...)
@@ -62,7 +61,8 @@ int main()
 {
 	// ft_printf("string => %s | dicimle => %%d | char=> %c  | pointeur => %p | hex => %x | HEX => %X \n","abcd", 1234, 'a',"abc", 0xC0, 0xC0);
 	// printf("string => %s | dicimle => %d | char=> %c | pointeur => %p | hex => %x | HEX => %X \n","abcd", 1234, 'a',"abc", 0xC0, 0xC0);
-ft_printf("%x",NULL);
+int p = ft_printf("%x",1024);
+printf("\n%d\n", p);
 // int c = ft_printf("%s\n", "ahmed");
 // ft_printf("%d", c);
 }
