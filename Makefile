@@ -6,14 +6,13 @@
 #    By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/24 12:51:12 by yoelhaim          #+#    #+#              #
-#    Updated: 2021/11/24 19:45:15 by yoelhaim         ###   ########.fr        #
+#    Updated: 2021/12/02 13:12:06 by yoelhaim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 INC = include/ft_printf.h
-AR := ar crs
-INCLUDES = -I./includes
+AR := ar rc
 FLAGS = -Wall -Wextra -Werror
 REMOVE := rm -rf
 SRCS = ft_printf.c \

@@ -6,16 +6,16 @@
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 12:32:34 by yoelhaim          #+#    #+#             */
-/*   Updated: 2021/12/01 21:44:18 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2021/12/02 13:06:39 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include <stdio.h>
 # include <stdarg.h>
 # include <unistd.h>
-# define HEX "0123456789abcdef"
+# define HEXLOW "0123456789abcdef"
+# define HEXUP "0123456789ABCDEF"
 
 int	ft_putchar(char c);
 int	ft_putnbr_base_ptr(unsigned long nb, char *base);
